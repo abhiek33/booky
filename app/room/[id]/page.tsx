@@ -7,7 +7,7 @@ const getRoomData = async ({ params }: { params: any }) => {
   const { id } = await params; // Ensure params is awaited properly
 
   const res = await fetch(
-    `http://127.0.0.1:1337/api/rooms?filters[customID][$eq]=${id}&populate=*`,
+    `http://booky-be.onrender.com/api/rooms?filters[customID][$eq]=${id}&populate=*`,
     {
       next: {
         revalidate: 0,
@@ -18,11 +18,14 @@ const getRoomData = async ({ params }: { params: any }) => {
 };
 
 const getReservationData = async () => {
-  const res = await fetch(`http://127.0.0.1:1337/api/reservations?populate=*`, {
-    next: {
-      revalidate: 0,
-    },
-  });
+  const res = await fetch(
+    `http://booky-be.onrender.com/api/reservations?populate=*`,
+    {
+      next: {
+        revalidate: 0,
+      },
+    }
+  );
   return await res.json();
 };
 
@@ -32,12 +35,12 @@ const RoomDetails = async ({ params }: { params: any }) => {
 
   const room = await getRoomData({ params });
   const reservations = await getReservationData();
-  console.log(reservations)
+  console.log(reservations);
   const { isAuthenticated, getUser } = getKindeServerSession();
   const isUserAuthenticated = await isAuthenticated();
   const userData = await getUser();
 
-  const imgURL = `http://127.0.0.1:1337${room.data[0]?.image?.url}`;
+  const imgURL = `http://booky-be.onrender.com/${room.data[0]?.image?.url}`;
   console.log(imgURL);
   return (
     <section className="min-h-[80vh] mx-10 sm:mx-30">

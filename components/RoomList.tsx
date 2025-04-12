@@ -8,16 +8,15 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const RoomList = ({ rooms }: { rooms: any }) => {
-
-  const [roomType, setRoomType] = useState('all')
-  const [filteredRooms, setFilteredRooms] = useState([])
+  const [roomType, setRoomType] = useState("all");
+  const [filteredRooms, setFilteredRooms] = useState([]);
 
   useEffect(() => {
     const filtered = rooms.data.filter((room: any) => {
-      return roomType === 'all' ? rooms: roomType === room.type
+      return roomType === "all" ? rooms : roomType === room.type;
     });
-    setFilteredRooms(filtered)
-  }, [roomType])
+    setFilteredRooms(filtered);
+  }, [roomType]);
 
   return (
     <section className="py-16 min-h-[90vh]">
@@ -36,19 +35,46 @@ const RoomList = ({ rooms }: { rooms: any }) => {
       </div>
 
       {/* .............tabs........... */}
-      <Tabs defaultValue="all" className="w-[240px] lg:w-[540px] h-[200px] lg:h-auto mb-8 mx-auto">
+      <Tabs
+        defaultValue="all"
+        className="w-[240px] lg:w-[540px] h-[200px] lg:h-auto mb-8 mx-auto"
+      >
         <TabsList className="w-full h-full lg:h-[46px] flex flex-col lg:flex-row">
-          <TabsTrigger className="w-full h-full" value='all' onClick={() => setRoomType('all')}>All</TabsTrigger>
-          <TabsTrigger className="w-full h-full" value='single' onClick={() => setRoomType('single')}>Single</TabsTrigger>
-          <TabsTrigger className="w-full h-full" value='double' onClick={() => setRoomType('double')}>Double</TabsTrigger>
-          <TabsTrigger className="w-full h-full" value='extended' onClick={() => setRoomType('extended')}>Extended</TabsTrigger>
+          <TabsTrigger
+            className="w-full h-full"
+            value="all"
+            onClick={() => setRoomType("all")}
+          >
+            All
+          </TabsTrigger>
+          <TabsTrigger
+            className="w-full h-full"
+            value="single"
+            onClick={() => setRoomType("single")}
+          >
+            Single
+          </TabsTrigger>
+          <TabsTrigger
+            className="w-full h-full"
+            value="double"
+            onClick={() => setRoomType("double")}
+          >
+            Double
+          </TabsTrigger>
+          <TabsTrigger
+            className="w-full h-full"
+            value="extended"
+            onClick={() => setRoomType("extended")}
+          >
+            Extended
+          </TabsTrigger>
         </TabsList>
       </Tabs>
 
       {/* ...........room list............... */}
       <div className=" grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-10 sm:mx-30">
         {filteredRooms.map((room: any) => {
-          const imgURL = `http://127.0.0.1:1337${room.image?.url}`;
+          const imgURL = `http://booky-be.onrender.com/${room.image?.url}`;
           return (
             <div key={room.id}>
               <Link href={`/room/${room.customID}`}>

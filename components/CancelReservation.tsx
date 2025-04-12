@@ -32,8 +32,8 @@ const deleteData = async (url: string) => {
 
 const CancelReservation = ({ reservation }: { reservation: any }) => {
   const router = useRouter();
-  const cancelReservation =  (id: number) => {
-     deleteData(`http://127.0.0.1:1337/api/reservations/:${id}`);
+  const cancelReservation = (id: number) => {
+    deleteData(`http://booky-be.onrender.com/api/reservations/${id}`);
     router.refresh();
   };
   return (
@@ -52,7 +52,9 @@ const CancelReservation = ({ reservation }: { reservation: any }) => {
         {/* ,.........footer..... */}
         <AlertDialogFooter>
           <AlertDialogCancel>Dismiss</AlertDialogCancel>
-          <AlertDialogAction onClick={() => cancelReservation(reservation.id - 1)}>
+          <AlertDialogAction
+            onClick={() => cancelReservation(reservation.id - 1)}
+          >
             Continue
           </AlertDialogAction>
         </AlertDialogFooter>

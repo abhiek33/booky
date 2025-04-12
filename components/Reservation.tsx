@@ -105,7 +105,7 @@ const Reservation = ({
 
     // filter reservations for the current room and check if any reservation overlaps with the selected dates
     const isReserved = reservations.data
-  .filter((item: any) => item.attributes?.room?.id === strapiRoomId)
+      .filter((item: any) => item.attributes?.room?.id === strapiRoomId)
 
       .some((item: any) => {
         // check if any reservation overlaps with the selected dates
@@ -159,7 +159,7 @@ const Reservation = ({
       };
 
       // ...............post booking data to the server...........
-       await postData("http://127.0.0.1:1337/api/reservations", data);
+      await postData("http://booky-be.onrender.com/api/reservations", data);
       setAlertMessage({
         message: "Your reservation is successfully booked.",
         type: "success",
