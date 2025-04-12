@@ -33,7 +33,7 @@ const deleteData = async (url: string) => {
 const CancelReservation = ({ reservation }: { reservation: any }) => {
   const router = useRouter();
   const cancelReservation = (id: number) => {
-    deleteData(`http://booky-be.onrender.com/api/reservations/${id}`);
+    deleteData(`https://booky-be.onrender.com/api/reservations/${id}`);
     router.refresh();
   };
   return (

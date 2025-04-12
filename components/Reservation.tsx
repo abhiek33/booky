@@ -159,7 +159,7 @@ const Reservation = ({
       };
 
       // ...............post booking data to the server...........
-      await postData("http://booky-be.onrender.com/api/reservations", data);
+      await postData("https://booky-be.onrender.com/api/reservations", data);
       setAlertMessage({
         message: "Your reservation is successfully booked.",
         type: "success",

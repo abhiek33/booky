@@ -1,11 +1,14 @@
 import RoomList from "./RoomList";
 
 const getRooms = async () => {
-  const res = await fetch("http://booky-be.onrender.com/api/rooms?populate=*", {
-    next: {
-      revalidate: 0,
-    },
-  });
+  const res = await fetch(
+    "https://booky-be.onrender.com/api/rooms?populate=*",
+    {
+      next: {
+        revalidate: 0,
+      },
+    }
+  );
   return await res.json();
 };
 

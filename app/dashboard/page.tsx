@@ -6,7 +6,7 @@ import { format } from "date-fns";
 const getUserReservations = async (userEmail: any) => {
   try {
     const res = await fetch(
-      `http://booky-be.onrender.com/api/reservations?[filters][email]$eq=${userEmail}&populate=*`,
+      `https://booky-be.onrender.com/api/reservations?[filters][email]$eq=${userEmail}&populate=*`,
       {
         next: {
           revalidate: 0,
