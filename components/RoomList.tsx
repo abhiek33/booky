@@ -11,12 +11,18 @@ const RoomList = ({ rooms }: { rooms: any }) => {
   const [roomType, setRoomType] = useState("all");
   const [filteredRooms, setFilteredRooms] = useState([]);
 
+
   useEffect(() => {
-    const filtered = rooms.data.filter((room: any) => {
-      return roomType === "all" ? rooms : roomType === room.type;
-    });
-    setFilteredRooms(filtered);
-  }, [roomType]);
+    if (rooms && rooms.data) {
+      const filtered = rooms.data.filter((room: any) => {
+        return roomType === "all" ? true : roomType === room.type;
+      });
+      setFilteredRooms(filtered);
+    }
+  }, [roomType, rooms]);
+
+  console.log("ROOMS:", rooms);
+
 
   return (
     <section className="py-16 min-h-[90vh]">

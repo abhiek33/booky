@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     remotePatterns:[
       {
         protocol: "http",
+        hostname: "booky-be.onrender.com",
+      },
+      {
+        protocol: "http",
         hostname: "127.0.0.1",
         port: "1337",
             },
