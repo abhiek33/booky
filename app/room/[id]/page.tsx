@@ -40,7 +40,7 @@ const RoomDetails = async ({ params }: { params: any }) => {
   const isUserAuthenticated = await isAuthenticated();
   const userData = await getUser();
 
-  const imgURL = `http://booky-be.onrender.com/${room.data[0]?.image?.url}`;
+  const imgURL = `http://booky-be.onrender.com${room.data[0]?.image?.url}`;
   console.log(imgURL);
   return (
     <section className="min-h-[80vh] mx-10 sm:mx-30">

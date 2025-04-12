@@ -83,14 +83,14 @@ const Reservation = ({
     }
 
     const idMap: Record<number, number> = {
-      1: 3,
-      2: 5,
+      1: 2,
+      2: 4,
       3: 7,
-      4: 9,
-      5: 1,
+      4: 10,
+      5: 12,
       6: 14,
       7: 16,
-      8: 11,
+      8: 18,
     };
 
     const actualRoom = room.data[0];

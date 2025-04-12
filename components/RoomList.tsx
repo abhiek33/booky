@@ -80,7 +80,7 @@ const RoomList = ({ rooms }: { rooms: any }) => {
       {/* ...........room list............... */}
       <div className=" grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-10 sm:mx-30">
         {filteredRooms.map((room: any) => {
-          const imgURL = `http://booky-be.onrender.com/${room.image?.url}`;
+          const imgURL = `http://booky-be.onrender.com${room.image?.url}`;
           return (
             <div key={room.id}>
               <Link href={`/room/${room.customID}`}>
