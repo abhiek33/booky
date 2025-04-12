@@ -1,17 +1,31 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { format } from "date-fns";
 
+
 const getUserReservations = async (userEmail: any) => {
-  const res = await fetch(
-    `http://127.0.0.1:1337/api/reservations?[filters][email]$eq=${userEmail}&populate=*`,
-    {
-      next: {
-        revalidate: 0,
-      },
+
+  try {
+    const res = await fetch(
+      `http://127.0.0.1:1337/api/reservations?[filters][email]$eq=${userEmail}&populate=*`,
+      {
+        next: {
+          revalidate: 0,
+        },
+      }
+    );
+
+    if (!res.ok) {
+      console.error("Failed to fetch reservations:", res.statusText);
+      return null;
     }
-  );
-  return await res.json();
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching reservations:", error);
+    return null;
+  }
 };
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
