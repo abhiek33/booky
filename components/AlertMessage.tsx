@@ -3,6 +3,7 @@
 import { Alert, AlertTitle } from "./ui/alert";
 import { FaInfoCircle } from "react-icons/fa";
 
+
 const AlertMessage = ({ message, type }: { message: any; type: any }) => {
   return (
     <Alert
