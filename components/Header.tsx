@@ -37,7 +37,7 @@ const user = await getUser();
           <div className="flex items-center gap-5 justify-center xl:w-max">
             {/* .......logo........ */}
             <Link href="/">
-              <Image src="/assets/logo.svg" width={160} height={160} alt="" />
+              <img src="/assets/logo.svg" width={160} height={160} alt="Logo" />
             </Link>
             {/* .......seperator....... */}
             <div className="w-[1px] h-[40px] bg-gray-300"> </div>
