@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns:[
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "booky-be.onrender.com",
       },
       {
